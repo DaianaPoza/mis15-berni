@@ -49,10 +49,22 @@ const Inforelevante = () => {
           </div>
 
           <span className="info-relevante__mapa">
-            VER MAPA
-            <span className="info-relevante__flecha">
-              ↗
-            </span>
+            <span>VER MAPA</span>
+
+            <svg
+              className="info-relevante__flecha"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M7 17L17 7M9 7h8v8"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </span>
         </a>
       </div>

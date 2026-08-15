@@ -150,7 +150,9 @@
   letter-spacing: 0.18em;
 }
 
-/* pequeño indicador de ubicación */
+/* ========================================
+   INDICADOR DE UBICACIÓN
+======================================== */
 
 .info-relevante__pin {
   color: #ff4b0b;
@@ -167,8 +169,9 @@
 .info-relevante__mapa {
   flex-shrink: 0;
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: flex-end;
 
   gap: 7px;
 
@@ -183,10 +186,21 @@
   color: #fff;
 }
 
+/* ========================================
+   FLECHA SVG
+======================================== */
+
 .info-relevante__flecha {
+  display: block;
+
+  width: 17px;
+  height: 17px;
+
+  flex: 0 0 17px;
+
   color: #ff4b0b;
 
-  font-size: 1.15rem;
+  overflow: visible;
 
   transition: transform 0.25s ease;
 }
@@ -206,7 +220,7 @@
 
   .info-relevante__direccion:hover
   .info-relevante__flecha {
-    transform: translate(3px, -3px);
+    transform: translate(2px, -2px);
   }
 
   .info-relevante__direccion:hover
@@ -220,7 +234,8 @@
 ======================================== */
 
 @media (max-width: 600px) {
-.info-relevante {
+
+  .info-relevante {
     padding:
       0
       18px
@@ -233,27 +248,38 @@
 
   .info-relevante__valor {
     font-size: 1rem;
+
     letter-spacing: 0.13em;
   }
 
   .info-relevante__nombre {
     font-size: 1rem;
+
     letter-spacing: 0.16em;
   }
 
   .info-relevante__direccion {
     gap: 10px;
+
     padding-top: 7px;
   }
 
   .info-relevante__direccion-texto {
     font-size: 0.7rem;
+
     letter-spacing: 0.13em;
   }
 
   .info-relevante__mapa {
+    gap: 6px;
+
     font-size: 0.9rem;
   }
-  
-   
+
+  .info-relevante__flecha {
+    width: 15px;
+    height: 15px;
+
+    flex-basis: 15px;
+  }
 }
