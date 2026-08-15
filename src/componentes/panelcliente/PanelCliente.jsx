@@ -120,6 +120,7 @@ const PanelCliente = () => {
         `
         id,
         nombre_apellido,
+        asiste,
         cantidad_invitados,
         restriccion_alimentaria,
         created_at
@@ -150,16 +151,36 @@ const PanelCliente = () => {
   };
 
   /* =========================
-     TOTAL DE PERSONAS
+     RESUMEN
   ========================= */
+
+  const totalConfirmaciones =
+    confirmaciones.length;
+
+  const totalAsisten =
+    confirmaciones.filter(
+      (item) => item.asiste === true
+    ).length;
+
+  const totalNoAsisten =
+    confirmaciones.filter(
+      (item) => item.asiste === false
+    ).length;
 
   const totalPersonas =
     confirmaciones.reduce(
-      (total, item) =>
-        total +
-        Number(
-          item.cantidad_invitados || 0
-        ),
+      (total, item) => {
+        if (item.asiste !== true) {
+          return total;
+        }
+
+        return (
+          total +
+          Number(
+            item.cantidad_invitados || 0
+          )
+        );
+      },
       0
     );
 
@@ -174,6 +195,7 @@ const PanelCliente = () => {
 
     const encabezados = [
       "Nombre y Apellido",
+      "Asiste",
       "Cantidad de invitados",
       "Restricción alimentaria",
       "Fecha de confirmación",
@@ -182,6 +204,11 @@ const PanelCliente = () => {
     const filas = confirmaciones.map(
       (item) => [
         item.nombre_apellido,
+        item.asiste === true
+          ? "Sí"
+          : item.asiste === false
+          ? "No"
+          : "Sin respuesta",
         item.cantidad_invitados,
         item.restriccion_alimentaria ||
           "Ninguna",
@@ -213,12 +240,6 @@ const PanelCliente = () => {
           .join(";")
       ),
     ].join("\n");
-
-    /*
-      BOM:
-      ayuda a que Excel reconozca
-      correctamente tildes y ñ.
-    */
 
     const bom = "\uFEFF";
 
@@ -375,8 +396,7 @@ const PanelCliente = () => {
             className="panel-cliente__descargar"
             onClick={descargarCSV}
             disabled={
-              confirmaciones.length ===
-              0
+              confirmaciones.length === 0
             }
           >
             DESCARGAR LISTA ↓
@@ -409,7 +429,27 @@ const PanelCliente = () => {
           </span>
 
           <strong>
-            {confirmaciones.length}
+            {totalConfirmaciones}
+          </strong>
+        </article>
+
+        <article className="panel-cliente__card">
+          <span>
+            ASISTEN
+          </span>
+
+          <strong>
+            {totalAsisten}
+          </strong>
+        </article>
+
+        <article className="panel-cliente__card">
+          <span>
+            NO ASISTEN
+          </span>
+
+          <strong>
+            {totalNoAsisten}
           </strong>
         </article>
 
@@ -430,15 +470,14 @@ const PanelCliente = () => {
 
         <div className="panel-cliente__tabla-head">
           <span>NOMBRE</span>
+          <span>ASISTE</span>
           <span>INV.</span>
           <span>RESTRICCIÓN</span>
         </div>
 
-        {confirmaciones.length ===
-        0 ? (
+        {confirmaciones.length === 0 ? (
           <p className="panel-cliente__sin-datos">
-            TODAVÍA NO HAY
-            CONFIRMACIONES
+            TODAVÍA NO HAY CONFIRMACIONES
           </p>
         ) : (
           confirmaciones.map(
@@ -451,6 +490,14 @@ const PanelCliente = () => {
                   {
                     item.nombre_apellido
                   }
+                </span>
+
+                <span className="panel-cliente__asiste">
+                  {item.asiste === true
+                    ? "SÍ"
+                    : item.asiste === false
+                    ? "NO"
+                    : "—"}
                 </span>
 
                 <span className="panel-cliente__cantidad">

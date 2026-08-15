@@ -10,7 +10,6 @@
     clamp(30px, 6vw, 70px);
 
   background: #000;
-
   color: #fff;
 }
 
@@ -20,16 +19,12 @@
 
 .panel-cliente--login {
   display: flex;
-
   align-items: center;
   justify-content: center;
 }
 
 .panel-cliente__login-box {
-  width: min(
-    100%,
-    520px
-  );
+  width: min(100%, 520px);
 }
 
 /* ========================================
@@ -100,7 +95,6 @@
 
 .panel-cliente__form {
   display: flex;
-
   flex-direction: column;
 
   gap: 25px;
@@ -108,7 +102,6 @@
 
 .panel-cliente__campo {
   display: flex;
-
   flex-direction: column;
 
   gap: 10px;
@@ -233,7 +226,6 @@
   display: flex;
 
   justify-content: space-between;
-
   align-items: flex-start;
 
   gap: 25px;
@@ -256,7 +248,6 @@
 
 .panel-cliente__acciones {
   display: flex;
-
   align-items: center;
 
   gap: 10px;
@@ -379,7 +370,7 @@
 
   grid-template-columns:
     repeat(
-      2,
+      4,
       minmax(0, 1fr)
     );
 
@@ -438,7 +429,7 @@
 
   font-size: clamp(
     4rem,
-    10vw,
+    8vw,
     6rem
   );
 
@@ -473,6 +464,7 @@
   grid-template-columns:
     minmax(0, 2fr)
     80px
+    70px
     minmax(0, 1.5fr);
 
   gap: 18px;
@@ -480,7 +472,9 @@
   align-items: center;
 }
 
-/* CABECERA TABLA */
+/* ========================================
+   CABECERA TABLA
+======================================== */
 
 .panel-cliente__tabla-head {
   padding:
@@ -516,7 +510,9 @@
     );
 }
 
-/* FILAS */
+/* ========================================
+   FILAS
+======================================== */
 
 .panel-cliente__fila {
   padding:
@@ -537,13 +533,48 @@
   font-size: 0.95rem;
 }
 
+/* ========================================
+   ASISTE
+======================================== */
+
+.panel-cliente__asiste {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.72rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.12em;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+}
+
+/* ========================================
+   CANTIDAD
+======================================== */
+
 .panel-cliente__cantidad {
   font-family:
     "League Gothic",
     sans-serif;
 
   font-size: 1.7rem;
+
+  color: #fff;
 }
+
+/* ========================================
+   RESTRICCION
+======================================== */
 
 .panel-cliente__restriccion {
   font-size: 0.78rem;
@@ -610,6 +641,32 @@
 }
 
 /* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+  .panel-cliente__resumen {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+  .panel-cliente__tabla-head,
+  .panel-cliente__fila {
+    grid-template-columns:
+      minmax(0, 1.7fr)
+      70px
+      60px
+      minmax(0, 1.2fr);
+
+    gap: 12px;
+  }
+}
+
+/* ========================================
    MOBILE
 ======================================== */
 
@@ -644,7 +701,15 @@
     flex: 1;
   }
 
+  /* RESUMEN 2 x 2 */
+
   .panel-cliente__resumen {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
     gap: 10px;
   }
 
@@ -654,18 +719,41 @@
     padding: 16px;
   }
 
+  .panel-cliente__card strong {
+    font-size: 4.2rem;
+  }
+
+  /* TABLA */
+
   .panel-cliente__tabla-head,
   .panel-cliente__fila {
     grid-template-columns:
-      minmax(0, 1.7fr)
-      45px
-      minmax(0, 1.2fr);
+      minmax(0, 1.5fr)
+      48px
+      40px
+      minmax(0, 1.1fr);
 
-    gap: 10px;
+    gap: 8px;
+  }
+
+  .panel-cliente__tabla-head span {
+    font-size: 0.5rem;
+
+    letter-spacing: 0.1em;
   }
 
   .panel-cliente__nombre {
     font-size: 0.82rem;
+  }
+
+  .panel-cliente__asiste {
+    font-size: 0.62rem;
+
+    letter-spacing: 0.06em;
+  }
+
+  .panel-cliente__cantidad {
+    font-size: 1.5rem;
   }
 
   .panel-cliente__restriccion {
@@ -695,13 +783,52 @@
     width: 100%;
   }
 
+  .panel-cliente__card {
+    min-height: 118px;
+
+    padding: 14px;
+  }
+
+  .panel-cliente__card span {
+    font-size: 0.55rem;
+
+    letter-spacing: 0.1em;
+  }
+
+  .panel-cliente__card strong {
+    font-size: 3.7rem;
+  }
+
   .panel-cliente__tabla-head,
   .panel-cliente__fila {
     grid-template-columns:
-      minmax(0, 1.5fr)
-      38px
-      minmax(0, 1.1fr);
+      minmax(0, 1.35fr)
+      42px
+      34px
+      minmax(0, 1fr);
 
-    gap: 7px;
+    gap: 6px;
+  }
+
+  .panel-cliente__tabla-head span {
+    font-size: 0.45rem;
+
+    letter-spacing: 0.06em;
+  }
+
+  .panel-cliente__nombre {
+    font-size: 0.75rem;
+  }
+
+  .panel-cliente__asiste {
+    font-size: 0.56rem;
+  }
+
+  .panel-cliente__cantidad {
+    font-size: 1.35rem;
+  }
+
+  .panel-cliente__restriccion {
+    font-size: 0.61rem;
   }
 }

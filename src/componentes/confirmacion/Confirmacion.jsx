@@ -4,7 +4,11 @@ import "./Confirmacion.css";
 
 const Confirmacion = () => {
   const [nombreApellido, setNombreApellido] = useState("");
+
+  const [asiste, setAsiste] = useState(null);
+
   const [cantidadInvitados, setCantidadInvitados] = useState(1);
+
   const [tieneRestriccion, setTieneRestriccion] = useState(false);
   const [restriccion, setRestriccion] = useState("");
 
@@ -17,7 +21,19 @@ const Confirmacion = () => {
   };
 
   const disminuirCantidad = () => {
-    setCantidadInvitados((prev) => (prev > 1 ? prev - 1 : 1));
+    setCantidadInvitados((prev) =>
+      prev > 1 ? prev - 1 : 1
+    );
+  };
+
+  const seleccionarAsistencia = (valor) => {
+    setAsiste(valor);
+
+    if (!valor) {
+      setCantidadInvitados(1);
+      setTieneRestriccion(false);
+      setRestriccion("");
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -30,8 +46,19 @@ const Confirmacion = () => {
       return;
     }
 
-    if (tieneRestriccion && !restriccion.trim()) {
-      setError("Contanos cuál es tu restricción alimentaria.");
+    if (asiste === null) {
+      setError("Indicá si vas a poder asistir.");
+      return;
+    }
+
+    if (
+      asiste &&
+      tieneRestriccion &&
+      !restriccion.trim()
+    ) {
+      setError(
+        "Contanos cuál es tu restricción alimentaria."
+      );
       return;
     }
 
@@ -42,11 +69,23 @@ const Confirmacion = () => {
       .insert([
         {
           evento: "berni-fest",
-          nombre_apellido: nombreApellido.trim(),
-          cantidad_invitados: cantidadInvitados,
-          restriccion_alimentaria: tieneRestriccion
-            ? restriccion.trim()
-            : "Ninguna",
+
+          nombre_apellido:
+            nombreApellido.trim(),
+
+          asiste: asiste,
+
+          cantidad_invitados:
+            asiste
+              ? cantidadInvitados
+              : 0,
+
+          restriccion_alimentaria:
+            !asiste
+              ? "No aplica"
+              : tieneRestriccion
+              ? restriccion.trim()
+              : "Ninguna",
         },
       ]);
 
@@ -69,19 +108,33 @@ const Confirmacion = () => {
     return (
       <section className="confirmacion">
         <div className="confirmacion__resultado">
+
           <span className="confirmacion__access">
             ALL ACCESS
           </span>
 
           <h2 className="confirmacion__resultado-titulo">
-            ASISTENCIA
-            <br />
-            CONFIRMADA
+            {asiste ? (
+              <>
+                ASISTENCIA
+                <br />
+                CONFIRMADA
+              </>
+            ) : (
+              <>
+                RESPUESTA
+                <br />
+                REGISTRADA
+              </>
+            )}
           </h2>
 
           <p className="confirmacion__resultado-texto">
-            Nos vemos en Berni Fest
+            {asiste
+              ? "Nos vemos en Berni Fest"
+              : "Gracias por avisarnos"}
           </p>
+
         </div>
       </section>
     );
@@ -89,12 +142,15 @@ const Confirmacion = () => {
 
   return (
     <section className="confirmacion">
+
       <div className="confirmacion__encabezado">
+
         <span className="confirmacion__detalle"></span>
 
         <h2 className="confirmacion__titulo">
           CONFIRMAR ASISTENCIA
         </h2>
+
       </div>
 
       <p className="confirmacion__intro">
@@ -105,8 +161,13 @@ const Confirmacion = () => {
         className="confirmacion__form"
         onSubmit={handleSubmit}
       >
-        {/* NOMBRE */}
+
+        {/* =========================
+            NOMBRE
+        ========================= */}
+
         <div className="confirmacion__campo">
+
           <label
             className="confirmacion__label"
             htmlFor="nombreApellido"
@@ -120,91 +181,168 @@ const Confirmacion = () => {
             className="confirmacion__input"
             value={nombreApellido}
             onChange={(e) =>
-              setNombreApellido(e.target.value)
+              setNombreApellido(
+                e.target.value
+              )
             }
             placeholder="Tu nombre"
             autoComplete="name"
           />
+
         </div>
 
-        {/* CANTIDAD */}
+        {/* =========================
+            ASISTENCIA
+        ========================= */}
+
         <div className="confirmacion__campo">
+
           <span className="confirmacion__label">
-            CANTIDAD DE INVITADOS
-          </span>
-
-          <div className="confirmacion__cantidad">
-            <button
-              type="button"
-              className="confirmacion__cantidad-boton"
-              onClick={disminuirCantidad}
-              aria-label="Disminuir cantidad"
-            >
-              −
-            </button>
-
-            <span className="confirmacion__cantidad-numero">
-              {String(cantidadInvitados).padStart(2, "0")}
-            </span>
-
-            <button
-              type="button"
-              className="confirmacion__cantidad-boton"
-              onClick={aumentarCantidad}
-              aria-label="Aumentar cantidad"
-            >
-              +
-            </button>
-          </div>
-        </div>
-
-        {/* RESTRICCIONES */}
-        <div className="confirmacion__campo">
-          <span className="confirmacion__label">
-            ¿TENÉS ALGUNA RESTRICCIÓN ALIMENTARIA?
+            ¿VAS A PODER ASISTIR?
           </span>
 
           <div className="confirmacion__opciones">
+
             <button
               type="button"
               className={`confirmacion__opcion ${
-                !tieneRestriccion
+                asiste === true
                   ? "confirmacion__opcion--activa"
                   : ""
               }`}
-              onClick={() => {
-                setTieneRestriccion(false);
-                setRestriccion("");
-              }}
+              onClick={() =>
+                seleccionarAsistencia(true)
+              }
             >
-              NO
+              SÍ, VOY
             </button>
 
             <button
               type="button"
               className={`confirmacion__opcion ${
-                tieneRestriccion
+                asiste === false
                   ? "confirmacion__opcion--activa"
                   : ""
               }`}
-              onClick={() => setTieneRestriccion(true)}
+              onClick={() =>
+                seleccionarAsistencia(false)
+              }
             >
-              SÍ
+              NO PUEDO
             </button>
+
           </div>
 
-          {tieneRestriccion && (
-            <input
-              type="text"
-              className="confirmacion__input confirmacion__input--restriccion"
-              value={restriccion}
-              onChange={(e) =>
-                setRestriccion(e.target.value)
-              }
-              placeholder="Ej: celiaquía, vegetariano..."
-            />
-          )}
         </div>
+
+        {/* =========================
+            SOLO SI ASISTE
+        ========================= */}
+
+        {asiste === true && (
+          <>
+
+            {/* CANTIDAD */}
+
+            <div className="confirmacion__campo">
+
+              <span className="confirmacion__label">
+                CANTIDAD DE INVITADOS
+              </span>
+
+              <div className="confirmacion__cantidad">
+
+                <button
+                  type="button"
+                  className="confirmacion__cantidad-boton"
+                  onClick={disminuirCantidad}
+                  aria-label="Disminuir cantidad"
+                >
+                  −
+                </button>
+
+                <span className="confirmacion__cantidad-numero">
+                  {String(
+                    cantidadInvitados
+                  ).padStart(2, "0")}
+                </span>
+
+                <button
+                  type="button"
+                  className="confirmacion__cantidad-boton"
+                  onClick={aumentarCantidad}
+                  aria-label="Aumentar cantidad"
+                >
+                  +
+                </button>
+
+              </div>
+
+            </div>
+
+            {/* RESTRICCIONES */}
+
+            <div className="confirmacion__campo">
+
+              <span className="confirmacion__label">
+                ¿TENÉS ALGUNA RESTRICCIÓN ALIMENTARIA?
+              </span>
+
+              <div className="confirmacion__opciones">
+
+                <button
+                  type="button"
+                  className={`confirmacion__opcion ${
+                    !tieneRestriccion
+                      ? "confirmacion__opcion--activa"
+                      : ""
+                  }`}
+                  onClick={() => {
+                    setTieneRestriccion(false);
+                    setRestriccion("");
+                  }}
+                >
+                  NO
+                </button>
+
+                <button
+                  type="button"
+                  className={`confirmacion__opcion ${
+                    tieneRestriccion
+                      ? "confirmacion__opcion--activa"
+                      : ""
+                  }`}
+                  onClick={() =>
+                    setTieneRestriccion(true)
+                  }
+                >
+                  SÍ
+                </button>
+
+              </div>
+
+              {tieneRestriccion && (
+                <input
+                  type="text"
+                  className="confirmacion__input confirmacion__input--restriccion"
+                  value={restriccion}
+                  onChange={(e) =>
+                    setRestriccion(
+                      e.target.value
+                    )
+                  }
+                  placeholder="Ej: celiaquía, vegetariano..."
+                />
+              )}
+
+            </div>
+
+          </>
+        )}
+
+        {/* =========================
+            ERROR
+        ========================= */}
 
         {error && (
           <p className="confirmacion__error">
@@ -212,22 +350,30 @@ const Confirmacion = () => {
           </p>
         )}
 
+        {/* =========================
+            ENVIAR
+        ========================= */}
+
         <button
           type="submit"
           className="confirmacion__submit"
           disabled={enviando}
         >
+
           <span>
             {enviando
               ? "ENVIANDO..."
-              : "CONFIRMAR ACCESO"}
+              : "CONFIRMAR RESPUESTA"}
           </span>
 
           <span className="confirmacion__submit-flecha">
             →
           </span>
+
         </button>
+
       </form>
+
     </section>
   );
 };
