@@ -1,0 +1,432 @@
+/* ========================================
+   BONUS TRACK / REGALO
+======================================== */
+
+.regalo {
+  width: 100%;
+
+  padding:
+    clamp(50px, 8vw, 85px)
+    clamp(18px, 6vw, 70px)
+    clamp(55px, 9vw, 90px);
+
+  background: #000;
+
+  color: #fff;
+}
+
+/* ========================================
+   TITULO
+======================================== */
+
+.regalo__encabezado {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+.regalo__detalle {
+  width: 5px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ff4b0b 0%,
+      #ff4b0b 48%,
+      #8128e7 52%,
+      #8128e7 100%
+    );
+}
+
+.regalo__titulo {
+  margin: 0;
+
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: clamp(
+    3.6rem,
+    9vw,
+    6rem
+  );
+
+  font-weight: 400;
+
+  line-height: 0.72;
+
+  letter-spacing: -0.02em;
+
+  text-transform: uppercase;
+
+  color: #fff;
+}
+
+/* ========================================
+   TEXTO
+======================================== */
+
+.regalo__texto {
+  max-width: 620px;
+
+  margin:
+    0
+    0
+    30px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: clamp(
+    0.82rem,
+    2.4vw,
+    1rem
+  );
+
+  font-weight: 400;
+
+  line-height: 1.7;
+
+  letter-spacing: 0.05em;
+
+  color:
+    rgba(255, 255, 255, 0.68);
+}
+
+/* ========================================
+   BOTON VER DATOS
+======================================== */
+
+.regalo__toggle {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding:
+    15px
+    17px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.22);
+
+  border-radius: 0;
+
+  background: transparent;
+
+  color: #fff;
+
+  cursor: pointer;
+
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: 1.3rem;
+
+  font-weight: 400;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.regalo__toggle:hover {
+  border-color:
+    rgba(129, 40, 231, 0.8);
+
+  background:
+    rgba(255, 255, 255, 0.015);
+}
+
+.regalo__toggle--activo {
+  border-color:
+    rgba(129, 40, 231, 0.65);
+}
+
+/* + / - */
+
+.regalo__toggle-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 1.6rem;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  color: #ff4b0b;
+}
+
+/* ========================================
+   DATOS DESPLEGABLES
+======================================== */
+
+.regalo__datos {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  opacity: 0;
+
+  transition:
+    grid-template-rows 0.4s ease,
+    opacity 0.3s ease;
+}
+
+.regalo__datos--visible {
+  grid-template-rows: 1fr;
+
+  opacity: 1;
+}
+
+.regalo__datos-contenido {
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+/* ========================================
+   FILAS DE DATOS
+======================================== */
+
+.regalo__dato {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  padding:
+    18px
+    2px;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.13);
+}
+
+.regalo__dato:first-child {
+  margin-top: 12px;
+}
+
+/* ========================================
+   TEXTO DATOS
+======================================== */
+
+.regalo__dato-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.regalo__label {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.65rem;
+
+  font-weight: 400;
+
+  letter-spacing: 0.2em;
+
+  color: #a542f4;
+}
+
+.regalo__valor {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: clamp(
+    0.9rem,
+    2.5vw,
+    1.05rem
+  );
+
+  letter-spacing: 0.08em;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ========================================
+   BOTON COPIAR
+======================================== */
+
+.regalo__copiar {
+  flex-shrink: 0;
+
+  padding: 7px 0 7px 12px;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.12em;
+
+  color: #fff;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.regalo__copiar:hover {
+  color: #ff4b0b;
+
+  transform: translateX(2px);
+}
+
+/* ========================================
+   DETALLE INFERIOR
+======================================== */
+
+.regalo::after {
+  content: "";
+
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  margin-top: 32px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff4b0b 0%,
+      #ff4b0b 8%,
+      rgba(255, 255, 255, 0.16) 8%,
+      rgba(255, 255, 255, 0.16) 84%,
+      #8128e7 84%,
+      #8128e7 100%
+    );
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .regalo {
+    padding:
+      48px
+      18px
+      55px;
+  }
+
+  .regalo__encabezado {
+    margin-bottom: 16px;
+  }
+
+  .regalo__detalle {
+    height: 38px;
+    width: 4px;
+  }
+
+  .regalo__titulo {
+    font-size: 3.8rem;
+  }
+
+  .regalo__texto {
+    margin-bottom: 25px;
+
+    font-size: 0.78rem;
+
+    line-height: 1.7;
+
+    letter-spacing: 0.04em;
+  }
+
+  .regalo__toggle {
+    padding:
+      13px
+      14px;
+
+    font-size: 1.15rem;
+  }
+
+  .regalo__dato {
+    gap: 12px;
+
+    padding:
+      16px
+      2px;
+  }
+
+  .regalo__valor {
+    font-size: 0.85rem;
+  }
+
+  .regalo__valor--cbu {
+    font-size: 0.75rem;
+
+    letter-spacing: 0.04em;
+  }
+
+  .regalo__copiar {
+    font-size: 0.9rem;
+  }
+}
+
+/* ========================================
+   CELULARES MUY CHICOS
+======================================== */
+
+@media (max-width: 380px) {
+
+  .regalo {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .regalo__titulo {
+    font-size: 3.4rem;
+  }
+
+  .regalo__texto {
+    font-size: 0.74rem;
+  }
+
+  .regalo__valor--cbu {
+    font-size: 0.68rem;
+  }
+}

@@ -1,0 +1,259 @@
+/* ========================================
+   INFORMACIÓN RELEVANTE
+======================================== */
+
+.info-relevante {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  padding:
+    0
+    clamp(18px, 6vw, 70px)
+    clamp(45px, 8vw, 80px);
+
+  background: #000;
+
+  color: #fff;
+}
+
+/* ========================================
+   FECHA + HORA
+======================================== */
+
+.info-relevante__fecha-hora {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  padding: 14px 0;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.22);
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.22);
+}
+
+.info-relevante__dato {
+  display: flex;
+  align-items: center;
+}
+
+.info-relevante__dato--hora {
+  justify-content: flex-end;
+}
+
+.info-relevante__valor {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: clamp(
+    1rem,
+    3.5vw,
+    1.3rem
+  );
+
+  font-weight: 400;
+
+  letter-spacing: 0.15em;
+
+  color: #9a35ef;
+
+  text-shadow:
+    0 0 12px
+    rgba(154, 53, 239, 0.18);
+}
+
+/* ========================================
+   LUGAR
+======================================== */
+
+.info-relevante__lugar {
+  padding-top: 17px;
+}
+
+.info-relevante__nombre {
+  margin: 0 0 9px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: clamp(
+    1rem,
+    3.5vw,
+    1.3rem
+  );
+
+  font-weight: 400;
+
+  letter-spacing: 0.18em;
+
+  color: #c34cff;
+}
+
+/* ========================================
+   DIRECCIÓN / GOOGLE MAPS
+======================================== */
+
+.info-relevante__direccion {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 8px 0 12px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  text-decoration: none;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.15);
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.info-relevante__direccion-texto {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: clamp(
+    0.72rem,
+    2.5vw,
+    0.9rem
+  );
+
+  letter-spacing: 0.18em;
+}
+
+/* pequeño indicador de ubicación */
+
+.info-relevante__pin {
+  color: #ff4b0b;
+
+  font-size: 0.65rem;
+
+  transition: transform 0.25s ease;
+}
+
+/* ========================================
+   VER MAPA
+======================================== */
+
+.info-relevante__mapa {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.12em;
+
+  color: #fff;
+}
+
+.info-relevante__flecha {
+  color: #ff4b0b;
+
+  font-size: 1.15rem;
+
+  transition: transform 0.25s ease;
+}
+
+/* ========================================
+   HOVER
+======================================== */
+
+@media (hover: hover) {
+
+  .info-relevante__direccion:hover {
+    color: #fff;
+
+    border-bottom-color:
+      rgba(154, 53, 239, 0.75);
+  }
+
+  .info-relevante__direccion:hover
+  .info-relevante__flecha {
+    transform: translate(3px, -3px);
+  }
+
+  .info-relevante__direccion:hover
+  .info-relevante__pin {
+    transform: scale(1.25);
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+.info-relevante {
+    padding:
+      0
+      18px
+      35px;
+  }
+
+  .info-relevante__fecha-hora {
+    padding: 12px 0;
+  }
+
+  .info-relevante__valor {
+    font-size: 1rem;
+    letter-spacing: 0.13em;
+  }
+
+  .info-relevante__nombre {
+    font-size: 1rem;
+    letter-spacing: 0.16em;
+  }
+
+  .info-relevante__direccion {
+    gap: 10px;
+    padding-top: 7px;
+  }
+
+  .info-relevante__direccion-texto {
+    font-size: 0.7rem;
+    letter-spacing: 0.13em;
+  }
+
+  .info-relevante__mapa {
+    font-size: 0.9rem;
+  }
+  
+   
+}

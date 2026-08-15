@@ -1,0 +1,406 @@
+.confirmacion {
+  width: 100%;
+
+  padding:
+    clamp(55px, 9vw, 90px)
+    clamp(18px, 6vw, 70px)
+    clamp(60px, 10vw, 100px);
+
+  background: #000;
+  color: #fff;
+}
+
+/* TITULO */
+
+.confirmacion__encabezado {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+.confirmacion__detalle {
+  width: 5px;
+  height: 46px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ff4b0b 0%,
+      #ff4b0b 48%,
+      #8128e7 52%,
+      #8128e7 100%
+    );
+}
+
+.confirmacion__titulo {
+  margin: 0;
+
+  font-family: "League Gothic", sans-serif;
+
+  font-size: clamp(
+    3.4rem,
+    8vw,
+    5.8rem
+  );
+
+  font-weight: 400;
+  line-height: 0.78;
+  letter-spacing: -0.02em;
+
+  color: #fff;
+}
+
+.confirmacion__intro {
+  max-width: 550px;
+
+  margin:
+    0
+    0
+    38px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.85rem;
+  line-height: 1.7;
+
+  letter-spacing: 0.05em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* CAMPOS */
+
+.confirmacion__campo {
+  width: 100%;
+
+  padding:
+    20px
+    0;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.16);
+}
+
+.confirmacion__label {
+  display: block;
+
+  margin-bottom: 13px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.18em;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+}
+
+/* INPUT */
+
+.confirmacion__input {
+  width: 100%;
+
+  padding:
+    10px
+    0;
+
+  border: none;
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.28);
+
+  outline: none;
+
+  background: transparent;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.06em;
+
+  color: #fff;
+}
+
+.confirmacion__input::placeholder {
+  color:
+    rgba(255, 255, 255, 0.25);
+}
+
+.confirmacion__input:focus {
+  border-bottom-color: #8128e7;
+}
+
+/* CANTIDAD */
+
+.confirmacion__cantidad {
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
+}
+
+.confirmacion__cantidad-boton {
+  width: 42px;
+  height: 42px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.25);
+
+  background: transparent;
+
+  color: #fff;
+
+  font-size: 1.5rem;
+
+  cursor: pointer;
+}
+
+.confirmacion__cantidad-numero {
+  min-width: 55px;
+
+  text-align: center;
+
+  font-family: "League Gothic", sans-serif;
+
+  font-size: 3.2rem;
+
+  line-height: 1;
+
+  color: #fff;
+}
+
+/* RESTRICCIONES */
+
+.confirmacion__opciones {
+  display: flex;
+
+  gap: 10px;
+}
+
+.confirmacion__opcion {
+  min-width: 75px;
+
+  padding:
+    10px
+    15px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.22);
+
+  background: transparent;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: 1.1rem;
+
+  letter-spacing: 0.1em;
+
+  cursor: pointer;
+}
+
+.confirmacion__opcion--activa {
+  border-color: #8128e7;
+
+  color: #fff;
+
+  background:
+    rgba(129, 40, 231, 0.1);
+}
+
+.confirmacion__input--restriccion {
+  margin-top: 18px;
+}
+
+/* ERROR */
+
+.confirmacion__error {
+  margin:
+    18px
+    0
+    0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.06em;
+
+  color: #ff4b0b;
+}
+
+/* SUBMIT */
+
+.confirmacion__submit {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 30px;
+
+  padding:
+    16px
+    18px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.25);
+
+  background: transparent;
+
+  color: #fff;
+
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: 1.35rem;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.confirmacion__submit:hover {
+  border-color: #8128e7;
+
+  background:
+    rgba(129, 40, 231, 0.05);
+}
+
+.confirmacion__submit:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.confirmacion__submit-flecha {
+  color: #ff4b0b;
+
+  font-size: 1.5rem;
+}
+
+/* CONFIRMADO */
+
+.confirmacion__resultado {
+  padding:
+    35px
+    0;
+
+  text-align: center;
+}
+
+.confirmacion__access {
+  display: inline-block;
+
+  margin-bottom: 22px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.35em;
+
+  color: #8128e7;
+}
+
+.confirmacion__resultado-titulo {
+  margin: 0;
+
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: clamp(
+    4.5rem,
+    12vw,
+    8rem
+  );
+
+  font-weight: 400;
+
+  line-height: 0.72;
+
+  color: #fff;
+}
+
+.confirmacion__resultado-texto {
+  margin-top: 25px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.85rem;
+
+  letter-spacing: 0.12em;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .confirmacion {
+    padding:
+      50px
+      18px
+      60px;
+  }
+
+  .confirmacion__titulo {
+    font-size: 3.7rem;
+  }
+
+  .confirmacion__detalle {
+    width: 4px;
+    height: 39px;
+  }
+
+  .confirmacion__intro {
+    font-size: 0.78rem;
+  }
+
+  .confirmacion__cantidad-numero {
+    font-size: 3rem;
+  }
+
+  .confirmacion__submit {
+    font-size: 1.2rem;
+  }
+}
