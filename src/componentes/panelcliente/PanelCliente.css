@@ -1,0 +1,707 @@
+/* ========================================
+   PANEL CLIENTE
+======================================== */
+
+.panel-cliente {
+  width: 100%;
+  min-height: 100vh;
+
+  padding:
+    clamp(30px, 6vw, 70px);
+
+  background: #000;
+
+  color: #fff;
+}
+
+/* ========================================
+   LOGIN
+======================================== */
+
+.panel-cliente--login {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.panel-cliente__login-box {
+  width: min(
+    100%,
+    520px
+  );
+}
+
+/* ========================================
+   TEXTOS SUPERIORES
+======================================== */
+
+.panel-cliente__eyebrow {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.28em;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+}
+
+.panel-cliente__titulo,
+.panel-cliente__evento {
+  margin: 0;
+
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-weight: 400;
+
+  line-height: 0.74;
+
+  letter-spacing: -0.02em;
+
+  text-transform: uppercase;
+}
+
+.panel-cliente__titulo {
+  margin-bottom: 45px;
+
+  font-size: clamp(
+    5rem,
+    16vw,
+    8rem
+  );
+}
+
+.panel-cliente__evento {
+  font-size: clamp(
+    3.5rem,
+    9vw,
+    6rem
+  );
+}
+
+/* ========================================
+   FORMULARIO LOGIN
+======================================== */
+
+.panel-cliente__form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.panel-cliente__campo {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.panel-cliente__campo label {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.2em;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+}
+
+.panel-cliente__campo input {
+  width: 100%;
+
+  padding:
+    13px
+    0;
+
+  border: none;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    );
+
+  outline: none;
+
+  background: transparent;
+
+  color: #fff;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.05em;
+}
+
+.panel-cliente__campo input:focus {
+  border-bottom-color:
+    #8128e7;
+}
+
+/* ========================================
+   BOTON LOGIN
+======================================== */
+
+.panel-cliente__boton {
+  margin-top: 10px;
+
+  padding:
+    16px
+    18px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    );
+
+  background: transparent;
+
+  color: #fff;
+
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: 1.35rem;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.panel-cliente__boton:hover {
+  border-color:
+    #8128e7;
+
+  background:
+    rgba(
+      129,
+      40,
+      231,
+      0.05
+    );
+}
+
+.panel-cliente__boton:disabled {
+  opacity: 0.45;
+
+  cursor: default;
+}
+
+/* ========================================
+   CABECERA DASHBOARD
+======================================== */
+
+.panel-cliente__topbar {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 25px;
+
+  padding-bottom: 30px;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+}
+
+/* ========================================
+   ACCIONES
+======================================== */
+
+.panel-cliente__acciones {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+/* ========================================
+   DESCARGAR
+======================================== */
+
+.panel-cliente__descargar {
+  padding:
+    10px
+    14px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.22
+    );
+
+  background: transparent;
+
+  color: #fff;
+
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+.panel-cliente__descargar:hover {
+  border-color:
+    #8128e7;
+
+  background:
+    rgba(
+      129,
+      40,
+      231,
+      0.06
+    );
+}
+
+.panel-cliente__descargar:disabled {
+  opacity: 0.3;
+
+  cursor: default;
+}
+
+/* ========================================
+   SALIR
+======================================== */
+
+.panel-cliente__logout {
+  padding:
+    10px
+    14px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.2
+    );
+
+  background: transparent;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.75
+    );
+
+  cursor: pointer;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.15em;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.panel-cliente__logout:hover {
+  border-color:
+    #ff4b0b;
+
+  color: #fff;
+}
+
+/* ========================================
+   RESUMEN
+======================================== */
+
+.panel-cliente__resumen {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 15px;
+
+  margin:
+    35px
+    0;
+}
+
+.panel-cliente__card {
+  min-height: 155px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content:
+    space-between;
+
+  padding: 20px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+}
+
+.panel-cliente__card span {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.15em;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.5
+    );
+}
+
+.panel-cliente__card strong {
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: clamp(
+    4rem,
+    10vw,
+    6rem
+  );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  color: #fff;
+}
+
+/* ========================================
+   TABLA
+======================================== */
+
+.panel-cliente__tabla {
+  width: 100%;
+
+  border-top:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+}
+
+.panel-cliente__tabla-head,
+.panel-cliente__fila {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 2fr)
+    80px
+    minmax(0, 1.5fr);
+
+  gap: 18px;
+
+  align-items: center;
+}
+
+/* CABECERA TABLA */
+
+.panel-cliente__tabla-head {
+  padding:
+    15px
+    0;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+}
+
+.panel-cliente__tabla-head span {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.58rem;
+
+  letter-spacing: 0.17em;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.42
+    );
+}
+
+/* FILAS */
+
+.panel-cliente__fila {
+  padding:
+    17px
+    0;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+}
+
+.panel-cliente__nombre {
+  font-size: 0.95rem;
+}
+
+.panel-cliente__cantidad {
+  font-family:
+    "League Gothic",
+    sans-serif;
+
+  font-size: 1.7rem;
+}
+
+.panel-cliente__restriccion {
+  font-size: 0.78rem;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+}
+
+/* ========================================
+   ESTADOS
+======================================== */
+
+.panel-cliente__estado,
+.panel-cliente__sin-datos {
+  padding:
+    40px
+    0;
+
+  text-align: center;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.2em;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.45
+    );
+}
+
+/* ========================================
+   ERROR
+======================================== */
+
+.panel-cliente__error {
+  margin:
+    15px
+    0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.05em;
+
+  color:
+    #ff4b0b;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .panel-cliente {
+    padding:
+      30px
+      18px
+      50px;
+  }
+
+  .panel-cliente__titulo {
+    font-size: 5rem;
+  }
+
+  .panel-cliente__evento {
+    font-size: 3.7rem;
+  }
+
+  .panel-cliente__topbar {
+    flex-direction: column;
+
+    gap: 22px;
+  }
+
+  .panel-cliente__acciones {
+    width: 100%;
+  }
+
+  .panel-cliente__descargar {
+    flex: 1;
+  }
+
+  .panel-cliente__resumen {
+    gap: 10px;
+  }
+
+  .panel-cliente__card {
+    min-height: 130px;
+
+    padding: 16px;
+  }
+
+  .panel-cliente__tabla-head,
+  .panel-cliente__fila {
+    grid-template-columns:
+      minmax(0, 1.7fr)
+      45px
+      minmax(0, 1.2fr);
+
+    gap: 10px;
+  }
+
+  .panel-cliente__nombre {
+    font-size: 0.82rem;
+  }
+
+  .panel-cliente__restriccion {
+    font-size: 0.68rem;
+  }
+}
+
+/* ========================================
+   CELULARES MUY CHICOS
+======================================== */
+
+@media (max-width: 380px) {
+
+  .panel-cliente {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .panel-cliente__acciones {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .panel-cliente__descargar,
+  .panel-cliente__logout {
+    width: 100%;
+  }
+
+  .panel-cliente__tabla-head,
+  .panel-cliente__fila {
+    grid-template-columns:
+      minmax(0, 1.5fr)
+      38px
+      minmax(0, 1.1fr);
+
+    gap: 7px;
+  }
+}
