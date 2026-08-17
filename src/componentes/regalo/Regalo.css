@@ -37,10 +37,10 @@
   background:
     linear-gradient(
       180deg,
-      #ff4b0b 0%,
-      #ff4b0b 48%,
-      #8128e7 52%,
-      #8128e7 100%
+      #b8b8b8 0%,
+      #b8b8b8 48%,
+      #8f8f8f 52%,
+      #8f8f8f 100%
     );
 }
 
@@ -147,7 +147,7 @@
 
 .regalo__toggle:hover {
   border-color:
-    rgba(129, 40, 231, 0.8);
+    rgba(185, 185, 185, 0.8);
 
   background:
     rgba(255, 255, 255, 0.015);
@@ -155,7 +155,7 @@
 
 .regalo__toggle--activo {
   border-color:
-    rgba(129, 40, 231, 0.65);
+    rgba(185, 185, 185, 0.65);
 }
 
 /* + / - */
@@ -178,7 +178,7 @@
 
   line-height: 1;
 
-  color: #ff4b0b;
+  color: #b8b8b8;
 }
 
 /* ========================================
@@ -258,7 +258,7 @@
 
   letter-spacing: 0.2em;
 
-  color: #a542f4;
+  color: #bdbdbd;
 }
 
 .regalo__valor {
@@ -309,7 +309,7 @@
 }
 
 .regalo__copiar:hover {
-  color: #ff4b0b;
+  color: #b8b8b8;
 
   transform: translateX(2px);
 }
@@ -331,12 +331,12 @@
   background:
     linear-gradient(
       90deg,
-      #ff4b0b 0%,
-      #ff4b0b 8%,
+      #b8b8b8 0%,
+      #b8b8b8 8%,
       rgba(255, 255, 255, 0.16) 8%,
       rgba(255, 255, 255, 0.16) 84%,
-      #8128e7 84%,
-      #8128e7 100%
+      #8f8f8f 84%,
+      #8f8f8f 100%
     );
 }
 

@@ -28,10 +28,10 @@
   background:
     linear-gradient(
       180deg,
-      #ff4b0b 0%,
-      #ff4b0b 48%,
-      #8128e7 52%,
-      #8128e7 100%
+      #b8b8b8 0%,
+      #b8b8b8 48%,
+      #8f8f8f 52%,
+      #8f8f8f 100%
     );
 }
 
@@ -142,7 +142,7 @@
 }
 
 .confirmacion__input:focus {
-  border-bottom-color: #8128e7;
+  border-bottom-color: #8f8f8f;
 }
 
 /* CANTIDAD */
@@ -221,12 +221,12 @@
 }
 
 .confirmacion__opcion--activa {
-  border-color: #8128e7;
+  border-color: #8f8f8f;
 
   color: #fff;
 
   background:
-    rgba(129, 40, 231, 0.1);
+    rgba(185, 185, 185, 0.1);
 }
 
 .confirmacion__input--restriccion {
@@ -250,7 +250,7 @@
 
   letter-spacing: 0.06em;
 
-  color: #ff4b0b;
+  color: #b8b8b8;
 }
 
 /* SUBMIT */
@@ -292,10 +292,10 @@
 }
 
 .confirmacion__submit:hover {
-  border-color: #8128e7;
+  border-color: #8f8f8f;
 
   background:
-    rgba(129, 40, 231, 0.05);
+    rgba(185, 185, 185, 0.05);
 }
 
 .confirmacion__submit:disabled {
@@ -304,7 +304,7 @@
 }
 
 .confirmacion__submit-flecha {
-  color: #ff4b0b;
+  color: #b8b8b8;
 
   font-size: 1.5rem;
 }
@@ -333,7 +333,7 @@
 
   letter-spacing: 0.35em;
 
-  color: #8128e7;
+  color: #8f8f8f;
 }
 
 .confirmacion__resultado-titulo {

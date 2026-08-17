@@ -384,8 +384,13 @@ const PanelCliente = () => {
           </span>
 
           <h1 className="panel-cliente__evento">
-            {evento?.nombre ||
-              "EVENTO"}
+            <span className="panel-cliente__evento-nombre">
+              Berni
+            </span>
+
+            <span className="panel-cliente__evento-subtitulo">
+              MIS 15
+            </span>
           </h1>
         </div>
 

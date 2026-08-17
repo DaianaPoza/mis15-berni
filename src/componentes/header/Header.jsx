@@ -1,5 +1,5 @@
 import "./Header.css";
-import escenario from "../../assets/escenario.png";
+import escenario from "../../assets/disco-balls-header.jpeg";
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
       <div className="hero__image-wrapper">
         <img
           src={escenario}
-          alt="Escenario de recital"
+          alt="Esferas espejadas"
           className="hero__image"
         />
 
@@ -30,12 +30,10 @@ const Header = () => {
         <div className="hero__title-wrapper">
           <h1 className="hero__title">
             <span className="hero__title-berni">
-              BERNI
+              Berni
             </span>
 
-            <span className="hero__title-fest">
-              FEST
-            </span>
+          
           </h1>
 
           <p className="hero__subtitle">
