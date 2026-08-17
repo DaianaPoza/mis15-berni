@@ -335,7 +335,7 @@
   .hero {
     min-height: auto;
 
-    height: 760px;
+    height: 650px;
   }
 
   .hero__content {
@@ -460,7 +460,7 @@
 
 @media (max-width: 380px) {
   .hero {
-    height: 700px;
+    height: 620px;
   }
 
   .hero__content {
