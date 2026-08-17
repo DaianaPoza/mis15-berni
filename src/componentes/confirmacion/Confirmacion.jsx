@@ -129,12 +129,6 @@ const Confirmacion = () => {
             )}
           </h2>
 
-          <p className="confirmacion__resultado-texto">
-            {asiste
-              ? "Nos vemos en Berni Fest"
-              : "Gracias por avisarnos"}
-          </p>
-
         </div>
       </section>
     );
