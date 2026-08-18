@@ -40,8 +40,8 @@
 
   filter:
     grayscale(100%)
-    contrast(1.02)
-    brightness(0.96);
+    contrast(1.04)
+    brightness(1.08);
 }
 
 /*
@@ -56,18 +56,17 @@
   background:
     linear-gradient(
       90deg,
-      #000 0%,
-      rgba(0, 0, 0, 0.96) 12%,
-      rgba(0, 0, 0, 0.68) 34%,
-      rgba(0, 0, 0, 0.2) 66%,
-      rgba(0, 0, 0, 0.06) 100%
+      rgba(0, 0, 0, 0.26) 0%,
+      rgba(0, 0, 0, 0.14) 34%,
+      rgba(0, 0, 0, 0.04) 66%,
+      rgba(0, 0, 0, 0) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.58) 0%,
-      rgba(0, 0, 0, 0.04) 28%,
-      rgba(0, 0, 0, 0.04) 62%,
-      #000 100%
+      rgba(0, 0, 0, 0.24) 0%,
+      rgba(0, 0, 0, 0) 34%,
+      rgba(0, 0, 0, 0) 82%,
+      rgba(0, 0, 0, 0.45) 100%
     );
 }
 
@@ -191,18 +190,7 @@
 /* línea inferior similar a ticket */
 
 .vip-code::after {
-  content: "";
-
-  position: absolute;
-
-  left: clamp(20px, 6vw, 70px);
-  right: clamp(20px, 6vw, 70px);
-
-  top: clamp(96px, 11vw, 125px);
-
-  border-bottom:
-    1px dashed
-    rgba(210, 210, 210, 0.32);
+  content: none;
 }
 
 /* ========================================
@@ -210,10 +198,22 @@
 ======================================== */
 
 .hero__title-wrapper {
-  width: min(48%, 520px);
+  width: fit-content;
+  max-width: min(48%, 520px);
 
   margin-top: auto;
   margin-bottom: auto;
+
+  padding:
+    clamp(14px, 2vw, 22px)
+    clamp(16px, 2.5vw, 26px)
+    clamp(16px, 2.5vw, 28px);
+
+  background: rgba(0, 0, 0, 0.74);
+
+  box-shadow:
+    0 0 34px
+    rgba(0, 0, 0, 0.55);
 }
 
 .hero__title {
@@ -369,17 +369,16 @@
     background:
       linear-gradient(
         90deg,
-        #000 0%,
-        rgba(0, 0, 0, 0.95) 18%,
-        rgba(0, 0, 0, 0.62) 45%,
-        rgba(0, 0, 0, 0.12) 84%
+        rgba(0, 0, 0, 0.18) 0%,
+        rgba(0, 0, 0, 0.1) 42%,
+        rgba(0, 0, 0, 0) 84%
       ),
       linear-gradient(
         180deg,
         #000 0%,
-        rgba(0, 0, 0, 0.1) 18%,
-        rgba(0, 0, 0, 0.02) 58%,
-        #000 100%
+        rgba(0, 0, 0, 0) 22%,
+        rgba(0, 0, 0, 0) 84%,
+        rgba(0, 0, 0, 0.42) 100%
       );
   }
 
@@ -418,10 +417,18 @@
   ========================= */
 
   .hero__title-wrapper {
-    width: 62%;
+    width: fit-content;
+    max-width: 72%;
 
     margin-top: 15px;
     margin-bottom: 0;
+
+    padding:
+      12px
+      14px
+      14px;
+
+    background: rgba(0, 0, 0, 0.78);
   }
 
   .hero__title {
@@ -477,7 +484,8 @@
   }
 
   .hero__title-wrapper {
-    width: 64%;
+    width: fit-content;
+    max-width: 74%;
 
     margin-top: 10px;
     margin-bottom: 0;

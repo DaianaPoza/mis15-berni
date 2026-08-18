@@ -30,7 +30,7 @@ const Header = () => {
         <div className="hero__title-wrapper">
           <h1 className="hero__title">
             <span className="hero__title-berni">
-              Berni
+              BERNI
             </span>
 
           
